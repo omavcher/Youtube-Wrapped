@@ -1150,7 +1150,7 @@ const VideoComposition = () => {
                 textShadow: '0 0 10px rgba(88, 166, 255, 0.3)',
               }}
             >
-              your-repo/YouTube-Unwrapped
+              omavcher/Youtube-Wrapped
             </div>
             {/* Star Button */}
             <div
