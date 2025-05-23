@@ -38,28 +38,39 @@ const ChannelInput = () => {
   return (
     <div className="channel-input">
       <div className="channel-input-content">
-        <h1 className="channel-input-title">
-          <span className="gradient-text">Create Your {currentYear} Wrapped</span>
-        </h1>
+        <div className="title-container">
+          <h1 className="channel-input-title">
+            <span className="gradient-text">Create Your {currentYear} Wrapped</span>
+          </h1>
+          <div className="title-decoration">
+            <div className="decoration-line"></div>
+            <div className="decoration-dot"></div>
+            <div className="decoration-line"></div>
+          </div>
+        </div>
         
         <p className="channel-input-description">
           Enter your YouTube channel ID to generate your personalized wrapped video
         </p>
 
-        <div className="input-card">
+        <div className="input-card glow-effect">
+          <div className="card-decoration"></div>
           <form onSubmit={handleSubmit} className="input-form">
             <div className="input-group">
               <label htmlFor="channelId">YouTube Channel Name</label>
-              <input
-                type="text"
-                id="channelId"
-                value={channelId}
-                onChange={(e) => setChannelId(e.target.value)}
-                placeholder="Enter your channel name"
-                required
-              />
+              <div className="input-wrapper">
+                <input
+                  type="text"
+                  id="channelId"
+                  value={channelId}
+                  onChange={(e) => setChannelId(e.target.value)}
+                  placeholder="Enter your channel name"
+                  required
+                />
+                <span className="input-icon">🔍</span>
+              </div>
               <small className="input-help">
-                Enter your channel name (eg:tseries)
+                Enter your channel name (eg: tseries)
               </small>
             </div>
 
@@ -67,13 +78,16 @@ const ChannelInput = () => {
 
             <button 
               type="submit" 
-              className="submit-button"
+              className="submit-button pulse-on-hover"
               disabled={isLoading}
             >
               {isLoading ? (
                 <div className="loading-spinner" />
               ) : (
-                'Generate Wrapped'
+                <>
+                  Generate Wrapped
+                  <span className="button-arrow">→</span>
+                </>
               )}
             </button>
           </form>
@@ -83,26 +97,44 @@ const ChannelInput = () => {
           <h2>What's Included in Your Wrapped</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <span className="feature-icon">📊</span>
+              <div className="feature-icon-container">
+                <span className="feature-icon">📊</span>
+              </div>
               <h3>Channel Stats</h3>
               <p>View your growth and engagement metrics</p>
+              <div className="feature-hover-effect"></div>
             </div>
             <div className="feature-card">
-              <span className="feature-icon">🎬</span>
+              <div className="feature-icon-container">
+                <span className="feature-icon">🎬</span>
+              </div>
               <h3>Top Videos</h3>
               <p>See your most successful content</p>
+              <div className="feature-hover-effect"></div>
             </div>
             <div className="feature-card">
-              <span className="feature-icon">📈</span>
+              <div className="feature-icon-container">
+                <span className="feature-icon">📈</span>
+              </div>
               <h3>Year in Review</h3>
               <p>Track your progress throughout the year</p>
+              <div className="feature-hover-effect"></div>
             </div>
           </div>
         </div>
 
         <div className="floating-elements">
           {['🎥', '📱', '💻', '🎮', '🎯', '🚀', '🔥', '💫', '⭐'].map((emoji, index) => (
-            <span key={index} className="floating-emoji" style={{ '--delay': `${index * 0.5}s` }}>
+            <span 
+              key={index} 
+              className="floating-emoji" 
+              style={{ 
+                '--delay': `${index * 0.5}s`,
+                '--size': `${Math.random() * 1 + 1}rem`,
+                '--start-x': `${Math.random() * 80 + 10}%`,
+                '--start-y': `${Math.random() * 80 + 10}%`
+              }}
+            >
               {emoji}
             </span>
           ))}
@@ -116,9 +148,7 @@ const ChannelInput = () => {
             rel="noopener noreferrer" 
             className="creator-link"
           >
-            
-Om Avcher
-
+            Om Avcher
           </a>
         </div>
       </div>
@@ -126,4 +156,4 @@ Om Avcher
   );
 };
 
-export default ChannelInput; 
+export default ChannelInput;
