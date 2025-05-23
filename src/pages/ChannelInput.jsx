@@ -49,7 +49,7 @@ const ChannelInput = () => {
         <div className="input-card">
           <form onSubmit={handleSubmit} className="input-form">
             <div className="input-group">
-              <label htmlFor="channelId">YouTube Channel ID</label>
+              <label htmlFor="channelId">YouTube Channel Name</label>
               <input
                 type="text"
                 id="channelId"
