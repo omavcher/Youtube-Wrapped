@@ -55,11 +55,11 @@ const ChannelInput = () => {
                 id="channelId"
                 value={channelId}
                 onChange={(e) => setChannelId(e.target.value)}
-                placeholder="Enter your channel ID"
+                placeholder="Enter your channel name"
                 required
               />
               <small className="input-help">
-                Find your channel ID in your YouTube channel URL or settings
+                Enter your channel name (eg:tseries)
               </small>
             </div>
 
