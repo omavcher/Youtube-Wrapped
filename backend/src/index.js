@@ -10,6 +10,24 @@ import routes from './routes/index.js';
 
 const app = express();
 
+
+const url = `https://youtube-wrapped.onrender.com`;
+const interval = 30000;
+
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloded");
+    })
+    .catch((error) => {
+      console.error(`Error : ${error.message}`);
+    });
+}
+
+setInterval(reloadWebsite, interval);
+
+
 // Security Middleware
 app.use(helmet()); // Security headers
 app.use(cors({
