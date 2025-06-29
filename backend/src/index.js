@@ -3,6 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
+import axios from 'axios';
 import { config } from './config/index.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import { logger } from './utils/logger.js';
@@ -10,8 +11,22 @@ import routes from './routes/index.js';
 
 const app = express();
 
+// Website reload configuration
+const url = `https://youtube-wrapped.onrender.com`;
+const interval = 30000;
 
+function reloadWebsite() {
+  axios
+    .get(url)
+    .then((response) => {
+      console.log("website reloaded");
+    })
+    .catch((error) => {
+      console.error(`Error: ${error.message}`);
+    });
+}
 
+setInterval(reloadWebsite, interval);
 
 // Security Middleware
 app.use(helmet()); // Security headers
